@@ -1,0 +1,115 @@
+{% extends 'Partials/_Base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+
+ <link rel="stylesheet" type="text/css" href="{% static 'assets/' %}">
+{% block section_contenido %}
+<div class="admin-panels ui-sortable animated fadeIn">
+{% csrf_token %}
+<form id="form_aptitudes">
+  <div class="container">
+  <div class="row">
+    <div class="col">
+        <center>¡Registra tu aptitud!</center>
+        <hr>
+
+      <div class="form-group row">
+        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Área</label>
+        <div class="col-7  ">
+          <select  class="form-control" id="area_select">
+            <option value=""></option>
+            {% for i in Areas %}
+            <option value="{{i.pk}}">{{i.Nombre}}</option>
+
+            {% endfor %}
+
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Aptitud </label>
+        <div class="col-7  ">
+            <select  class="form-control" id="aptitud_select">
+
+{#                {% for i in Aptitudes %}#}
+{##}
+{##}
+{##}
+{#                    <option class="{{i.Area.pk}}" id="{{i.Area.pk}}"  value="{{i.pk}}">{{ i.Nombre }}</option>#}
+{##}
+{#            {% endfor %}#}
+          </select>
+        </div>
+      </div>
+    <!-- check buttons -->
+
+<!-- fin div row -->
+
+
+{##}
+{#      <center>#}
+{#        <div class="form-check">#}
+{#          <input required class="form-check-input" type="checkbox" value="" id="defaultCheck1">#}
+{#          <label class="form-check-label" for="defaultCheck1">#}
+{#            Acepto los terminos y condiciones#}
+{#          </label>#}
+{#        </div>#}
+{#      </center>#}
+    <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Realizar reserva</button>
+
+</form>
+</div>
+<progress value="0" max="60" id="progressBar"></progress>
+
+{% endblock %}
+{% block scripts %}
+<script>
+
+$( document ).ready(function() {
+// alert({{user.pk}});
+
+$("#area_select").change(function() {
+    var pk_select = $(this).val();
+    //alert(pk_select);
+    $("#aptitud_select").html("{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
+
+    var i;
+for (i = 1; i < 10; i++) {
+    //si tiene q no se borre
+  if( $("#"+i).hasClass(pk_select)){
+
+  }else{
+      $("."+i).remove();
+  }
+}
+//FIN CHANGE
+setCookie("pk_aptitud",String(pk_select),30)});
+// FORM
+    $('#form_aptitudes').submit(function(){
+        alert("SUBMIT");
+    //AJAX
+            $.ajax({
+        url: "{% url 'publicar_trabajo' %}",
+        type: "POST",
+        data: {
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+        },
+        success: function(data) {
+            console.log(data);
+            // alert("calmao washo");
+            window.location.href = "{% url 'validar_aptitud' %}";
+
+        },
+      });
+    // FIN AJAX
+    return false;
+
+    });
+//FIN PRINCIPAL
+});
+
+// console.log("{% csrf_token %}");
+</script>
+
+{% endblock %}
