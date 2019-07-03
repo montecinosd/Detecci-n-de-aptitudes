@@ -45,7 +45,8 @@ def validar_aptitud(request):
 @login_required(login_url='/auth/login')
 def visualizar_perfil(request,pk_user):
     data = {}
-    usuario = User.objects.get(pk=pk_user)
+    usuario = Persona.objects.get(Usuario=pk_user)
+    data['usuario'] = usuario
     if request.method == 'GET':
         print("get")
     else:

@@ -4,14 +4,61 @@
 
 
 <link rel="stylesheet" type="text/css" href="{% static 'assets/' %}">
-{% block section_contenido %}
-Hola de nuevo, {{ request.user }}!
 
-{{ i.imagen }}
+{% block section_contenido %}
+
+        <div class="row">
+          <div class="col-md-2">
+            <span class="footer-legal"><img class='img-responsive' src="/media/{{ usuario.Imagen }}" /></span>
+          </div>
+                  <div class="col-md-10">
+            <span style ="font-weight: bold;text-decoration: underline;; "class="footer-lega">{{ usuario.Nombre }}</span><br><br>
+            <span class="footer-lega">{{ usuario.Correo }}</span><br>
+            <span class="footer-lega">{{ usuario.Direccion.Pais }}, {{ usuario.Direccion.Ciudad }}.</span><br>
+            <span class="footer-lega">{{ usuario.Direccion.Comuna }}, {{ usuario.Direccion.Calle }} {{ usuario.Direccion.Numero_de_calle }}.</span><br>
+            <span class="footer-lega">{{ usuario.Nombre }}</span>
+          </div>
+        </div>
+    <div class="container">
+    <br>
+  <span style ="font-weight: bold;text-decoration: underline;; "class="footer-lega">Aptidudes</span>
+  <p>A continuación se puede visualizar las aptitudes de {{ usuario.Nombre }}</p>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="/media/content/daniel/informatica-customer-stories-cover.jpg" alt="Card image" style="width:100%">
+    <div class="card-body ">
+      <h4 class="card-title">Python3 Básico</h4>
+      <p class="card-text">Python3 bascico, sintaxis, Lorem impsum sadsadd</p>
+        <div class="text-center"><a href="#" class="btn btn-primary  stretched-link">Ver portafolio</a></div>
+
+    </div>
+  </div>
+</div>
+{#Hola de nuevo, {{ request.user }}!#}
+{#    {{ usuario.Imagen }}#}
+{#<img class='img-responsive' src="/media/{{ usuario.Imagen }}" />#}
+{##}
+{#{{ usuario.Nombre }}#}
+{#{{ usuario.Correo }}#}
+{#{{ usuario.Telefono_C }}#}
+{#{{ usuario.Rut}}#}
+{#{{ usuario.Direccion.Comuna}}#}
+{#{{ usuario.Direccion.Calle}}#}
+{#{{ usuario.Direccion.Ciudad}}#}
+{#{{ usuario.Direccion.Pais}}#}
+{#{{ usuario.Direccion.Numero_de_calle}}#}
+{##}
+{##}
+{##}
+
 {% endblock %}
 
 {% block scripts %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
+
 $( document ).ready(function() {
         $.ajax({
         url: "{% url 'validar_aptitud' %}",
