@@ -4,10 +4,10 @@ from django.shortcuts import render
 from Publicar_trabajo.models import *
 from Publicar_trabajo.forms import *
 
-from django.shortcuts import redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
@@ -25,8 +25,30 @@ def publicar_trabajo(request):
 
     return render(request, 'publicar_trabajo.html', data)
 
+@login_required(login_url='/auth/login')
 def validar_aptitud(request):
     data = {}
 
+    if (request.method == "POST"):
+        pk_aptitud = request.POST['pk_aptitud']
+        print(pk_aptitud)
+        print("hola")
+        data["cuestionario"] = Pregunta.objects.filter(Aptitud_vinculada__pk = pk_aptitud)
+        print(data)
+
+    else:
+        print("NADA")
+
+    print(data)
     return render(request, 'validar_aptitud.html', data)
 
+@login_required(login_url='/auth/login')
+def visualizar_perfil(request,pk_user):
+    data = {}
+    usuario = User.objects.get(pk=pk_user)
+    if request.method == 'GET':
+        print("get")
+    else:
+        return redirect('visualizar_perfil')
+
+    return render(request, 'visualizar_perfil.html', data)

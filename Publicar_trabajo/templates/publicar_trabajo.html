@@ -56,7 +56,7 @@
 {#          </label>#}
 {#        </div>#}
 {#      </center>#}
-    <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Realizar reserva</button>
+    <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Validar esta aptitud</button>
 
 </form>
 </div>
@@ -71,6 +71,10 @@ $( document ).ready(function() {
 
 $("#area_select").change(function() {
     var pk_select = $(this).val();
+    {#alerta = {{ Aptitudes|safe }};#}
+    {#widget.init(alerta);#}
+    {#alert(alerta);#}
+    {#alert("JOLA");#}
     //alert(pk_select);
     $("#aptitud_select").html("{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
 
@@ -89,15 +93,16 @@ setCookie("pk_aptitud",String(pk_select),30)});
     $('#form_aptitudes').submit(function(){
         alert("SUBMIT");
     //AJAX
-            $.ajax({
-        url: "{% url 'publicar_trabajo' %}",
+        $.ajax({
+        url: "{% url 'validar_aptitud' %}",
         type: "POST",
         data: {
-        csrfmiddlewaretoken: "{{ csrf_token }}",
+            "pk_aptitud" : getCookie("pk_aptitud"),
+            csrfmiddlewaretoken: "{{ csrf_token }}",
         },
         success: function(data) {
             console.log(data);
-            // alert("calmao washo");
+
             window.location.href = "{% url 'validar_aptitud' %}";
 
         },

@@ -206,7 +206,7 @@
     <!-- Start: Header -->
     <header class="navbar navbar-fixed-top">
       <div class="navbar-branding">
-        <a class="navbar-brand" href="dashboard.html">
+        <a class="navbar-brand" href="{% url 'index' %}">
           <b>Detección de </b>aptitudes
         </a>
         <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
@@ -252,7 +252,7 @@
           <div class="sidebar-widget menu-widget">
             <div class="row text-center mbn">
               <div class="col-xs-4">
-                <a href="dashboard.html" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
+                <a href="{% url 'index' %}" class="text-primary" data-toggle="tooltip" data-placement="top" title="Dashboard">
                   <span class="glyphicon glyphicon-home"></span>
                 </a>
               </div>
@@ -323,7 +323,7 @@
           </li>
 
         <li class="active">
-            <a href="pages_calendar.html">
+            <a href="{% url 'visualizar_perfil' request.user.pk %}" >
               <span class="fa fa-calendar"></span>
               <span class="sidebar-title">Perfil</span>
             </a>

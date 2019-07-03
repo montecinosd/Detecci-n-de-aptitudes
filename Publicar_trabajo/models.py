@@ -23,8 +23,8 @@ class Direccion(models.Model):
     Comuna = models.CharField(max_length = 50, null=True,blank=True)
     Pais = models.CharField(max_length = 50, null=True,blank=True)
     Ciudad = models.CharField(max_length = 50,null=True,blank=True)
-    Estado = models.CharField(max_length=100,null=True,blank=True)
-
+    Calle = models.CharField(max_length=100,null=True,blank=True)
+    Numero_de_calle = models.CharField(max_length=100,null=True,blank=True)
 class Persona(models.Model):
     Usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     Nombre = models.CharField(max_length = 120,null=True,blank=True)
@@ -43,13 +43,24 @@ class Respuestas(models.Model):
     Usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     Informacion = models.TextField()
     Validez = models.BooleanField()
-class Pregunta(models.Model):
-    Descripcion = models.CharField(max_length = 100,null=True,blank=True)
-    Respuestas = models.ForeignKey(Respuestas, on_delete=models.CASCADE)
-    Usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Cuestionario(models.Model):
-    Preguntas = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
+    Aptitud_vinculada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
+
+class Pregunta(models.Model):
+    pregunta = models.CharField(max_length = 100,null=True,blank=True)
+    a =  models.CharField(max_length = 100,null=True,blank=True)
+    b =  models.CharField(max_length = 100,null=True,blank=True)
+    c =  models.CharField(max_length = 100,null=True,blank=True)
+    d =  models.CharField(max_length = 100,null=True,blank=True)
+    Cuestionario = models.ForeignKey(Cuestionario, on_delete=models.CASCADE)
+    Aptitud_vinculada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
+    Respuesta_correcta = models.CharField(max_length = 10,null=True,blank=True)
+
+    Respuestas = models.ForeignKey(Respuestas, on_delete=models.CASCADE,null=True,blank=True)
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
+
+
 
 
 
