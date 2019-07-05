@@ -17,7 +17,7 @@ def index(request):
     a = 'jj'
     data = {a: 'holiwis'}
 
-    return render(request, 'index_super_user.html', data)
+    return render(request, 'publicar_trabajo.html', data)
 
 
 #def Registro_form(request):

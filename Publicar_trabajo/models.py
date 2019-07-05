@@ -48,6 +48,7 @@ class Respuestas(models.Model):
 class Cuestionario(models.Model):
     Aptitud_vinculada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
 
+
 class Pregunta(models.Model):
     pregunta = models.CharField(max_length = 100,null=True,blank=True)
     a =  models.CharField(max_length = 100,null=True,blank=True)

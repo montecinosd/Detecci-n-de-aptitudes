@@ -96,7 +96,7 @@ for (i = 1; i < 10; i++) {
 }
 $("#aptitud_select").change(function() {
     var pk_aptitud = $(this).val();
-    var url = "{% url 'visualizar_perfil' 987654 %}".replace(/987654/, pk_aptitud;
+    var url = "{% url 'validar_aptitud' 987654 %}".replace(/987654/, pk_aptitud);
     $("#declarar_boton").html("<a href="+url+" class='btn btn-default'>Go to Google</a>");
 });
 //FIN CHANGE
@@ -105,20 +105,20 @@ setCookie("pk_aptitud",String(pk_select),30)});
     $('#form_aptitudes').submit(function(){
         alert("SUBMIT");
     //AJAX
-        $.ajax({
-        url: "{% url 'validar_aptitud' %}",
-        type: "POST",
-        data: {
-            "pk_aptitud" : getCookie("pk_aptitud"),
-            csrfmiddlewaretoken: "{{ csrf_token }}",
-        },
-        success: function(data) {
-            console.log(data);
-
-            window.location.href = "{% url 'validar_aptitud'  %}";
-
-        },
-      });
+      {#  $.ajax({#}
+      {#  url: "",#}
+      {#  type: "POST",#}
+      {#  data: {#}
+      {#      "pk_aptitud" : getCookie("pk_aptitud"),#}
+      {#      csrfmiddlewaretoken: "{{ csrf_token }}",#}
+      {#  },#}
+      {#  success: function(data) {#}
+      {#      console.log(data);#}
+      {##}
+      {#      window.location.href = "{% url 'validar_aptitud' 987654 %}";#}
+      {##}
+      {#  },#}
+      {#});#}
     // FIN AJAX
     return false;
 

@@ -24,7 +24,7 @@ class RespuestasAdmin(admin.ModelAdmin):
      list_display = ('Usuario','Informacion','Validez','list_display')
 @admin.register(Pregunta)
 class PreguntaAdmin(admin.ModelAdmin):
-    list_display = ('pk','pregunta','a','b','c','d',)
+    list_display = ('pk','pregunta','a','b','c','d','Aptitud_vinculada','Respuesta_correcta')
 @admin.register(Cuestionario)
 class CuestionarioAdmin(admin.ModelAdmin):
     list_display = ('Aptitud_vinculada',)

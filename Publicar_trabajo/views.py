@@ -27,20 +27,18 @@ def publicar_trabajo(request):
 
 @login_required(login_url='/auth/login')
 def validar_aptitud(request,pk_aptitud):
+
     data = {}
+    usuario = Persona.objects.get(Usuario=3)
 
-    if (request.method == "POST"):
-        pk_aptitud = request.POST['pk_aptitud']
-        print(pk_aptitud)
-        print("hola")
-        data["cuestionario"] = Pregunta.objects.filter(Aptitud_vinculada__pk = pk_aptitud)
-        print(data)
-
+    preguntas = Pregunta.objects.filter(Aptitud_vinculada=pk_aptitud)
+    data['preguntas'] = preguntas
+    if request.method == 'GET':
+        print("get")
     else:
-        print("NADA")
-
-    print(data)
+        return redirect('validar_aptitud')
     return render(request, 'validar_aptitud.html', data)
+
 
 @login_required(login_url='/auth/login')
 def visualizar_perfil(request,pk_user):

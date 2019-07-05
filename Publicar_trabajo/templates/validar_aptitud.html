@@ -14,27 +14,27 @@ Completa el siguiente cuestionario para validar tu aptitud!
 <div id="quiz"></div>
 <button class="btn btn-primary" id="submit">Terminar validación y ver resultados!</button>
 <div id="results"></div>
-          {% for i in cuestionario %}
-          HOLA{{ i.pregunta }}
+          {% for i in preguntas %}
+          <br>{{ i.pregunta }} A:{{ i.a }}B:{{ i.b }}C:{{ i.c }}D:{{ i.d }}
       {% endfor %}
 {% endblock %}
 
 {% block scripts %}
 <script>
 $( document ).ready(function() {
-        $.ajax({
-        url: "{% url 'validar_aptitud' %}",
-        type: "POST",
-        data: {
-            "pk_aptitud" : getCookie("pk_aptitud"),
-            csrfmiddlewaretoken: "{{ csrf_token }}",
-        },
-        success: function(data) {
-            alert(data);
-
-
-        },
-      });
+      {#  $.ajax({#}
+      {#  url: "{% url 'validar_aptitud' %}",#}
+      {#  type: "POST",#}
+      {#  data: {#}
+      {#      "pk_aptitud" : getCookie("pk_aptitud"),#}
+      {#      csrfmiddlewaretoken: "{{ csrf_token }}",#}
+      {#  },#}
+      {#  success: function(data) {#}
+      {#      alert(data);#}
+      {##}
+      {##}
+      {#  },#}
+      {#});#}
 });
 (function() {
   function buildQuiz() {
@@ -106,35 +106,19 @@ $( document ).ready(function() {
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
   const myQuestions = [
+      {% for i in preguntas %}
+          {
+      question: "{{ i.pregunta }}",
+      answers: {
+        a: "{{ i.a }}",
+        b: "{{ i.b }}",
+        c: "{{ i.c }}",
+        d: " {{ i.d }}"
+      },
+      correctAnswer: "{{ i.Respuesta_correcta }}"
+    },
+      {% endfor %}
 
-    {
-      question: "Who is the strongest?",
-      answers: {
-        a: "Superman",
-        b: "The Terminator",
-        c: "Waluigi, obviously"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "What is the best site ever created?",
-      answers: {
-        a: "SitePoint",
-        b: "Simple Steps Code",
-        c: "Trick question; they're both the best"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "Where is Waldo really?",
-      answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
-      },
-      correctAnswer: "d"
-    }
   ];
 
   // display quiz right away

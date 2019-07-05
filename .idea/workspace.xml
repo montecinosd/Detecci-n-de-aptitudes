@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f21c1e25-e9fb-44f4-98ac-0254b1bc9d88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicar_trabajo/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicar_trabajo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publicar_trabajo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Publicar_trabajo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/Partials/_Base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Templates/Partials/_Base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Templates/index_super_user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Registro_fullpega/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Registro_fullpega/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Publicar_trabajo/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="38" />
+            <state relative-caret-position="95">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -48,11 +49,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="98" column="81" selection-start-line="98" selection-start-column="81" selection-end-line="98" selection-end-column="81" />
+            <state relative-caret-position="215">
+              <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Publicar_trabajo/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="59" column="4" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Publicar_trabajo/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,6 +123,7 @@
       <find>img</find>
       <find>col</find>
       <find>row</find>
+      <find>validar_ap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,7 +134,6 @@
       <list>
         <option value="$PROJECT_DIR$/Templates/publicar_trabajo.html" />
         <option value="$PROJECT_DIR$/Fullpega/settings.py" />
-        <option value="$PROJECT_DIR$/Registro_fullpega/views.py" />
         <option value="$PROJECT_DIR$/Registro_fullpega/urls.py" />
         <option value="$PROJECT_DIR$/Fullpega/urls.py" />
         <option value="$PROJECT_DIR$/Registro_fullpega/templates/pages_register.html" />
@@ -107,19 +141,20 @@
         <option value="$PROJECT_DIR$/Registro_fullpega/models.py" />
         <option value="$PROJECT_DIR$/Registro_fullpega/admin.py" />
         <option value="$PROJECT_DIR$/Registro_fullpega/forms.py" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" />
         <option value="$PROJECT_DIR$/Templates/index_super_user.html" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/admin.py" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/urls.py" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/models.py" />
         <option value="$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html" />
         <option value="$PROJECT_DIR$/Templates/Partials/_Base.html" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/views.py" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/urls.py" />
+        <option value="$PROJECT_DIR$/Registro_fullpega/views.py" />
         <option value="$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/views.py" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/models.py" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/admin.py" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="15" />
     <option name="y" value="10" />
     <option name="width" value="1820" />
@@ -154,6 +189,11 @@
               <item name="Proyecto_de_titulo" type="462c0819:PsiDirectoryNode" />
               <item name="Publicar_trabajo" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Proyecto_de_titulo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Proyecto_de_titulo" type="462c0819:PsiDirectoryNode" />
+              <item name="Registro_fullpega" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Proyecto_de_titulo" type="b2602c69:ProjectViewProjectNode" />
@@ -288,12 +328,12 @@
       <workItem from="1561848808253" duration="28527000" />
       <workItem from="1561955304410" duration="4753000" />
       <workItem from="1562122995029" duration="10118000" />
-      <workItem from="1562315145643" duration="3052000" />
+      <workItem from="1562315145643" duration="5376000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94217000" />
+    <option name="totallyTimeSpent" value="96541000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,7 +345,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.14832215" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.15771812" />
@@ -319,7 +360,7 @@
       <window_info anchor="bottom" id="manage.py@Proyecto_de_titulo" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49932885" visible="true" weight="0.30028328" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49932885" weight="0.30028328" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" weight="0.3286119" />
@@ -331,7 +372,7 @@
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.14630872" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989775" visible="true" weight="0.14832215" />
       <window_info id="Structure" order="1" sideWeight="0.5010225" side_tool="true" weight="0.15771812" />
       <window_info id="Favorites" order="2" sideWeight="0.5010225" side_tool="true" weight="0.15771812" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -483,17 +524,6 @@
     <entry file="file://$PROJECT_DIR$/Registro_fullpega/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Registro_fullpega/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1559440285545" expanded="true" signature="787:1531" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Registro_fullpega/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -510,16 +540,6 @@
           <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,37 +571,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="38" column="12" selection-start-line="38" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -592,23 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Templates/Partials/_Base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="318" column="26" selection-start-line="318" selection-end-line="319" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -616,10 +592,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Registro_fullpega/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1562318871378" expanded="true" signature="787:1531" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="98" column="81" selection-start-line="98" selection-start-column="81" selection-end-line="98" selection-end-column="81" />
+        <state relative-caret-position="215">
+          <caret line="114" column="31" selection-start-line="114" selection-start-column="31" selection-end-line="114" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Templates/Partials/_Base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="318" column="26" selection-start-line="318" selection-end-line="319" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="59" column="4" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
         </state>
       </provider>
     </entry>
