@@ -26,7 +26,7 @@ def publicar_trabajo(request):
     return render(request, 'publicar_trabajo.html', data)
 
 @login_required(login_url='/auth/login')
-def validar_aptitud(request):
+def validar_aptitud(request,pk_aptitud):
     data = {}
 
     if (request.method == "POST"):

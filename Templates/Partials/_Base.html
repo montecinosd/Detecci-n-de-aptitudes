@@ -314,20 +314,20 @@
 
         <!-- Start: Sidebar Left Menu -->
         <ul class="nav sidebar-menu">
-          <li class="sidebar-label pt20">Detección - Opciones</li>
+            <li class="sidebar-label pt20">Detección - Opciones</li>
+            <li class="active">
+                <a href="{% url 'visualizar_perfil' request.user.pk %}" >
+                    <span class="fa fa-user"></span>
+                    <span class="sidebar-title">Perfil</span>
+                </a>
+            </li>
             <li class="active">
             <a href="{% url 'publicar_trabajo' %}" >
-              <span class="fa fa-calendar"></span>
+              <span class="fa fa-edit"></span>
               <span class="sidebar-title">Declarar aptitud</span>
             </a>
           </li>
 
-        <li class="active">
-            <a href="{% url 'visualizar_perfil' request.user.pk %}" >
-              <span class="fa fa-calendar"></span>
-              <span class="sidebar-title">Perfil</span>
-            </a>
-          </li>
 
 
 

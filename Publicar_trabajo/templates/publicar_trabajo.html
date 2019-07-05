@@ -56,7 +56,13 @@
 {#          </label>#}
 {#        </div>#}
 {#      </center>#}
-    <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Validar esta aptitud</button>
+    <div id="declarar_boton">
+{#         <a href="{% url 'visualizar_perfil' request.user.pk %}" >#}
+        <a href="{% url 'visualizar_perfil' request.user.pk %}" class="btn btn-default">Go to Google</a>
+
+{#<button style="text-align: center;margin:2%;" class=" col-md-11 btn btn-primary" onclick="{% url 'visualizar_perfil' request.user.pk %}">Continue</button>#}
+{#        <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Validar esta aptitud</button>#}
+    </div>
 
 </form>
 </div>
@@ -76,7 +82,8 @@ $("#area_select").change(function() {
     {#alert(alerta);#}
     {#alert("JOLA");#}
     //alert(pk_select);
-    $("#aptitud_select").html("{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
+
+    $("#aptitud_select").html("<option>Seleccione la aptitud</option>{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
 
     var i;
 for (i = 1; i < 10; i++) {
@@ -87,6 +94,11 @@ for (i = 1; i < 10; i++) {
       $("."+i).remove();
   }
 }
+$("#aptitud_select").change(function() {
+    var pk_aptitud = $(this).val();
+    var url = "{% url 'visualizar_perfil' 987654 %}".replace(/987654/, pk_aptitud;
+    $("#declarar_boton").html("<a href="+url+" class='btn btn-default'>Go to Google</a>");
+});
 //FIN CHANGE
 setCookie("pk_aptitud",String(pk_select),30)});
 // FORM
@@ -103,7 +115,7 @@ setCookie("pk_aptitud",String(pk_select),30)});
         success: function(data) {
             console.log(data);
 
-            window.location.href = "{% url 'validar_aptitud' %}";
+            window.location.href = "{% url 'validar_aptitud'  %}";
 
         },
       });
