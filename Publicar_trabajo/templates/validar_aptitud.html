@@ -14,9 +14,9 @@ Completa el siguiente cuestionario para validar tu aptitud!
 <div id="quiz"></div>
 <button class="btn btn-primary" id="submit">Terminar validación y ver resultados!</button>
 <div id="results"></div>
-          {% for i in preguntas %}
-          <br>{{ i.pregunta }} A:{{ i.a }}B:{{ i.b }}C:{{ i.c }}D:{{ i.d }}
-      {% endfor %}
+{#          {% for i in preguntas %}#}
+{#          <br>{{ i.pregunta }} A:{{ i.a }}B:{{ i.b }}C:{{ i.c }}D:{{ i.d }}#}
+{#      {% endfor %}#}
 {% endblock %}
 
 {% block scripts %}
@@ -42,27 +42,31 @@ $( document ).ready(function() {
     const output = [];
 
     // for each question...
+      var cont = 1;
     myQuestions.forEach((currentQuestion, questionNumber) => {
       // we'll want to store the list of answer choices
       const answers = [];
 
-      // and for each available answer...
-      for (letter in currentQuestion.answers) {
-        // ...add an HTML radio button
+        // and for each available answer...
+        for (letter in currentQuestion.answers) {
+          // ...add an HTML radio button
         answers.push(
           `<label>
-            <input type="radio" name="question${questionNumber}" value="${letter}">
+            <br> <input type="radio" name="question${questionNumber}" value="${letter}">
             ${letter} :
             ${currentQuestion.answers[letter]}
-          </label>`
+          </label><br>`
         );
       }
 
       // add this question and its answers to the output
+
+
       output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join("")} </div>`
+        `<h3><div style ="font-weight: bold; " class="question">`+cont+` - ${currentQuestion.question} </div></h3>
+        <div style="margin-left: 2%;"class="answers"> ${answers.join("")} </div><br>`
       );
+      cont = cont+1;
     });
 
     // finally combine our output list into one string of HTML and put it on the page
@@ -110,10 +114,10 @@ $( document ).ready(function() {
           {
       question: "{{ i.pregunta }}",
       answers: {
-        a: "{{ i.a }}",
-        b: "{{ i.b }}",
-        c: "{{ i.c }}",
-        d: " {{ i.d }}"
+        A: "{{ i.a }}",
+        B: "{{ i.b }}",
+        C: "{{ i.c }}",
+        D: " {{ i.d }}"
       },
       correctAnswer: "{{ i.Respuesta_correcta }}"
     },

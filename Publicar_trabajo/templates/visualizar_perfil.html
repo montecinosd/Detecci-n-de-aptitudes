@@ -12,7 +12,7 @@
             <span class="footer-legal"><img class='img-responsive' src="/media/{{ usuario.Imagen }}" /></span>
           </div>
                   <div class="col-md-10">
-            <span style ="font-weight: bold;text-decoration: underline;; "class="footer-lega">{{ usuario.Nombre }}</span><br><br>
+            <span style ="font-weight: bold;text-decoration: underline; "class="footer-lega">{{ usuario.Nombre }}</span><br><br>
             <span class="footer-lega">{{ usuario.Correo }}</span><br>
             <span class="footer-lega">{{ usuario.Direccion.Pais }}, {{ usuario.Direccion.Ciudad }}.</span><br>
             <span class="footer-lega">{{ usuario.Direccion.Comuna }}, {{ usuario.Direccion.Calle }} {{ usuario.Direccion.Numero_de_calle }}.</span><br>
@@ -60,19 +60,19 @@
 <script>
 
 $( document ).ready(function() {
-        $.ajax({
-        url: "{% url 'validar_aptitud' %}",
-        type: "POST",
-        data: {
-            "pk_aptitud" : getCookie("pk_aptitud"),
-            csrfmiddlewaretoken: "{{ csrf_token }}",
-        },
-        success: function(data) {
-            //alert(data);
-
-
-        },
-      });
+      {#  $.ajax({#}
+      {#  url: "{% url 'validar_aptitud' %}",#}
+      {#  type: "POST",#}
+      {#  data: {#}
+      {#      "pk_aptitud" : getCookie("pk_aptitud"),#}
+      {#      csrfmiddlewaretoken: "{{ csrf_token }}",#}
+      {#  },#}
+      {#  success: function(data) {#}
+      {#      //alert(data);#}
+      {##}
+      {##}
+      {#  },#}
+      {#});#}
 });
 </script>
 
