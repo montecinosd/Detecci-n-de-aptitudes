@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f21c1e25-e9fb-44f4-98ac-0254b1bc9d88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
+            <state relative-caret-position="969">
               <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -64,11 +63,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+            <state relative-caret-position="288">
+              <caret line="155" column="4" lean-forward="true" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#center#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,9 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bienvenido</find>
-      <find>adminde</find>
-      <find>adminD</find>
       <find>liente</find>
       <find>messa</find>
       <find>cliente</find>
@@ -131,6 +131,9 @@
       <find>row</find>
       <find>push</find>
       <find>validar_ap</find>
+      <find>validad</find>
+      <find>progressbar</find>
+      <find>progress</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,8 +159,8 @@
         <option value="$PROJECT_DIR$/Publicar_trabajo/views.py" />
         <option value="$PROJECT_DIR$/Publicar_trabajo/models.py" />
         <option value="$PROJECT_DIR$/Publicar_trabajo/admin.py" />
-        <option value="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" />
         <option value="$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html" />
+        <option value="$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html" />
       </list>
     </option>
   </component>
@@ -335,12 +338,12 @@
       <workItem from="1561848808253" duration="28527000" />
       <workItem from="1561955304410" duration="4753000" />
       <workItem from="1562122995029" duration="10118000" />
-      <workItem from="1562315145643" duration="6465000" />
+      <workItem from="1562315145643" duration="8811000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97630000" />
+    <option name="totallyTimeSpent" value="99976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -650,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/publicar_trabajo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -666,10 +662,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/visualizar_perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="969">
           <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Publicar_trabajo/templates/validar_aptitud.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="155" column="4" lean-forward="true" selection-start-line="155" selection-start-column="4" selection-end-line="155" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#center#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
