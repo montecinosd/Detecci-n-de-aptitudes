@@ -45,6 +45,8 @@ def visualizar_perfil(request,pk_user):
     data = {}
     usuario = Persona.objects.get(Usuario=pk_user)
     data['usuario'] = usuario
+    data['aptidudes_validadas'] = Aptitude_validadas.objects.filter(Usuario=pk_user)
+    print(data)
     if request.method == 'GET':
         print("get")
     else:

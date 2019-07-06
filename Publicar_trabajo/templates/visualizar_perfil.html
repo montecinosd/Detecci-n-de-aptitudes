@@ -19,36 +19,28 @@
             <span class="footer-lega">{{ usuario.Nombre }}</span>
           </div>
         </div>
-    <div class="container">
     <br>
   <span style ="font-weight: bold;text-decoration: underline;; "class="footer-lega">Aptidudes</span>
-  <p>A continuación se puede visualizar las aptitudes de {{ usuario.Nombre }}</p>
-  <div class="card" style="width:400px">
-    <img class="card-img-top" src="/media/content/daniel/informatica-customer-stories-cover.jpg" alt="Card image" style="width:100%">
-    <div class="card-body ">
-      <h4 class="card-title">Python3 Básico</h4>
-      <p class="card-text">Python3 bascico, sintaxis, Lorem impsum sadsadd</p>
-        <div class="text-center"><a href="#" class="btn btn-primary  stretched-link">Ver portafolio</a></div>
 
-    </div>
-  </div>
-</div>
-{#Hola de nuevo, {{ request.user }}!#}
-{#    {{ usuario.Imagen }}#}
-{#<img class='img-responsive' src="/media/{{ usuario.Imagen }}" />#}
-{##}
-{#{{ usuario.Nombre }}#}
-{#{{ usuario.Correo }}#}
-{#{{ usuario.Telefono_C }}#}
-{#{{ usuario.Rut}}#}
-{#{{ usuario.Direccion.Comuna}}#}
-{#{{ usuario.Direccion.Calle}}#}
-{#{{ usuario.Direccion.Ciudad}}#}
-{#{{ usuario.Direccion.Pais}}#}
-{#{{ usuario.Direccion.Numero_de_calle}}#}
-{##}
-{##}
-{##}
+  <p>A continuación se puede visualizar las aptitudes de {{ usuario.Nombre }}</p>
+        <div class="container">
+<div class="row">
+
+        {% for i in aptidudes_validadas %}
+          <div class="card col-md-3" style="width:400px;margin:2%;"  >
+
+            <img class="class='img-responsive" src="/media/{{ i.Aptitud_validada.Imagen }}" alt="Card image" style="width:100%">
+            <div class="card-body ">
+              <h4 class="card-title">{{ i.Aptitud_validada.Nombre }}</h4>
+              <p class="card-text"> {{ i.Descripccion }}</p>
+                <div class="text-center"><a href="#" class="btn btn-primary  stretched-link">Ver portafolio</a></div>
+
+            </div>
+          </div>
+    {% endfor %}
+            </div>
+
+        </div>
 
 {% endblock %}
 

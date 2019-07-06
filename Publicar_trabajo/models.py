@@ -34,12 +34,21 @@ class Persona(models.Model):
     Correo = models.CharField(max_length = 100,null=True,blank=True)
     Direccion = models.OneToOneField(Direccion, on_delete=models.CASCADE)
 
+
+
 class Aptitudes(models.Model):
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
+
     Area = models.ForeignKey(Areas, on_delete=models.CASCADE)
-    # Imagen = models.ImageField(upload_to=content_file_name,null=True,blank=True)
+    Imagen = models.ImageField(upload_to=content_file_name,null=True,blank=True)
     Nombre = models.CharField(max_length = 120,null=True,blank=True)
     Descripccion = models.TextField()
     Fecha = models.DateTimeField(default=timezone.now)
+
+class Aptitude_validadas(models.Model):
+    Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
+    Aptitud_validada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
+
 class Respuestas(models.Model):
     Usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     Informacion = models.TextField()
@@ -61,30 +70,3 @@ class Pregunta(models.Model):
 
     Respuestas = models.ForeignKey(Respuestas, on_delete=models.CASCADE,null=True,blank=True)
     Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
-
-
-
-
-
-
-
-
-
-   #  Email = models.EmailField()
-   #  Direccion = models.CharField(max_length=60)
-   #  usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-   #
-   #  rut = models.CharField(max_length=8)
-   #  dv =
-   #  #privilegios 0 usuario normal, 1 oferente, 2 postulante, 3 mutual
-   # # privilegio = models.PositiveIntegerField(default=0)
-   #  privilegio = models.CharField(
-   #      max_length=4,
-   #      choices=(
-   #          ('Sp', 'Sin_privilegios'),
-   #          ('Po', 'Privilegio_ofrecer'),
-   #          ('Pp', 'Privilegio_publicar'),
-   #          ('Pm', 'Privilegio_mutuo'),),
-   #      default='Sp')
-   #  #Areas de interes
-   #  Areas_interes = models.ForeignKey(Areas, on_delete=models.CASCADE, default=None, blank=True, null=True)

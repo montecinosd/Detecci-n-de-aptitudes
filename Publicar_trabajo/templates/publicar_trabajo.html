@@ -5,19 +5,22 @@
 
  <link rel="stylesheet" type="text/css" href="{% static 'assets/' %}">
 {% block section_contenido %}
+
 <div class="admin-panels ui-sortable animated fadeIn">
 {% csrf_token %}
+
 <form id="form_aptitudes">
+
+
   <div class="container">
-  <div class="row">
-    <div class="col">
         <center>¡Registra tu aptitud!</center>
         <hr>
+    <div class="row">
 
-      <div class="form-group row">
+      <div class="col-md-8">
         <label for="exampleFormControlSelect1" class="col-5 col-form-label">Área</label>
-        <div class="col-7  ">
-          <select  class="form-control" id="area_select">
+        <div class="col-7-md">
+          <select class="select2_demo_1 form-control"id="area_select">
             <option value=""></option>
             {% for i in Areas %}
             <option value="{{i.pk}}">{{i.Nombre}}</option>
@@ -26,47 +29,29 @@
 
           </select>
         </div>
-      </div>
-      <div class="form-group row">
+    </div>
+
+
+      <div class="col-md-8">
         <label for="exampleFormControlSelect1" class="col-5 col-form-label">Aptitud </label>
         <div class="col-7  ">
             <select  class="form-control" id="aptitud_select">
-
-{#                {% for i in Aptitudes %}#}
-{##}
-{##}
-{##}
-{#                    <option class="{{i.Area.pk}}" id="{{i.Area.pk}}"  value="{{i.pk}}">{{ i.Nombre }}</option>#}
-{##}
-{#            {% endfor %}#}
           </select>
         </div>
       </div>
     <!-- check buttons -->
 
-<!-- fin div row -->
-
-
-{##}
-{#      <center>#}
-{#        <div class="form-check">#}
-{#          <input required class="form-check-input" type="checkbox" value="" id="defaultCheck1">#}
-{#          <label class="form-check-label" for="defaultCheck1">#}
-{#            Acepto los terminos y condiciones#}
-{#          </label>#}
-{#        </div>#}
-{#      </center>#}
-    <div id="declarar_boton">
 {#         <a href="{% url 'visualizar_perfil' request.user.pk %}" >#}
-        <a href="{% url 'visualizar_perfil' request.user.pk %}" class="btn btn-default">Go to Google</a>
-
+        <div class="form-row text-center">
+            <div id="declarar_boton"class="col-12">
+            </div>
+         </div>
 {#<button style="text-align: center;margin:2%;" class=" col-md-11 btn btn-primary" onclick="{% url 'visualizar_perfil' request.user.pk %}">Continue</button>#}
 {#        <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Validar esta aptitud</button>#}
-    </div>
+
 
 </form>
 </div>
-<progress value="0" max="60" id="progressBar"></progress>
 
 {% endblock %}
 {% block scripts %}
@@ -97,7 +82,7 @@ for (i = 1; i < 10; i++) {
 $("#aptitud_select").change(function() {
     var pk_aptitud = $(this).val();
     var url = "{% url 'validar_aptitud' 987654 %}".replace(/987654/, pk_aptitud);
-    $("#declarar_boton").html("<a href="+url+" class='btn btn-default'>Go to Google</a>");
+    $("#declarar_boton").html("<a href="+url+" class='btn btn-primary'>Validar aptitud</a>");
 });
 //FIN CHANGE
 setCookie("pk_aptitud",String(pk_select),30)});
