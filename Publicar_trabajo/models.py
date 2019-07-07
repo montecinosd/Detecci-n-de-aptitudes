@@ -38,7 +38,6 @@ class Persona(models.Model):
 
 class Aptitudes(models.Model):
     Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
-
     Area = models.ForeignKey(Areas, on_delete=models.CASCADE)
     Imagen = models.ImageField(upload_to=content_file_name,null=True,blank=True)
     Nombre = models.CharField(max_length = 120,null=True,blank=True)

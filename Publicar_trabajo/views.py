@@ -29,7 +29,7 @@ def publicar_trabajo(request):
 def validar_aptitud(request,pk_aptitud):
 
     data = {}
-    usuario = Persona.objects.get(Usuario=3)
+    usuario = Persona.objects.get(Usuario=request.user.pk)
 
     preguntas = Pregunta.objects.filter(Aptitud_vinculada=pk_aptitud)
     data['preguntas'] = preguntas

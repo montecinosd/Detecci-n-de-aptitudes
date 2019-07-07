@@ -26,10 +26,13 @@
         <button class="btn btn-primary" id="submit">Terminar validación y ver resultados!</button>
     </div>
  </div>
+
 <div id="results"></div>
 {#          {% for i in preguntas %}#}
 {#          <br>{{ i.pregunta }} A:{{ i.a }}B:{{ i.b }}C:{{ i.c }}D:{{ i.d }}#}
 {#      {% endfor %}#}
+    <a style="display: none;" id="url_visualizar_button" href="{% url 'visualizar_perfil' request.user.pk %}" >
+
 {% endblock %}
 
 {% block scripts %}
@@ -85,6 +88,26 @@ $( document ).ready(function() {
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join("");
   }
+function url_visualizar_perfil(){
+  document.getElementById("url_visualizar_button").click();
+
+  }
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function demo() {
+  console.log('Taking a break...');
+  await sleep(5000);
+  console.log('Two seconds later, showing sleep in a loop...');
+
+  // Sleep in loop
+  for (let i = 0; i < 5; i++) {
+    if (i === 3)
+      await sleep(5000);
+    console.log(i);
+  }
+}
 
   function showResults() {
     // gather answer containers from our quiz
@@ -130,7 +153,9 @@ $( document ).ready(function() {
           url: url_ajax ,
             data: {csrfmiddlewaretoken: "{{ csrf_token }}"},
 
+
         });
+
     }
     else {
                 $(pre_results).html("");
@@ -138,7 +163,8 @@ $( document ).ready(function() {
         resultsContainer.innerHTML = `<div class="text-center" style="color:red;"><h3> {{ request.user }}, ¡Lástima! no se vinculará la aptitud, obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</div></h3>`;
 
     }
-    alert(numCorrect);
+    {#url_visualizar_perfil();#}
+    {#alert(numCorrect);#}
   }
 
   const quizContainer = document.getElementById("quiz");
