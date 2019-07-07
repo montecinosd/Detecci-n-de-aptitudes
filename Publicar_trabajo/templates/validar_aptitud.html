@@ -5,19 +5,23 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'assets/' %}">
 {% block section_contenido %}
-Completa el siguiente cuestionario para validar tu aptitud!
+    <div class="container text-center">
+    <h3>¡Completa el siguiente cuestionario para validar tu aptitud!</h3>
+        Responde las preguntas a continuación para validar tu aptitud y que aparezca en tu perfil. Si se acaba el tiempo, se detendrá el cuestionario hasta donde hayas alcanzado a responder.
     <hr>
     <center><p style ="font-weight: bold; ">Tiempo restante</p></center>
 <div class="w3-progress-container w3-round-xlarge"id="progressBar">
   <div class="w3-progressbar w3-round-xlarge progress-bar"></div>
 </div>
+        </div>
+
 <style>
 .w3-progress-container{width:100%;height:1.5em;position:relative;background-color:#f1f1f1}
 .w3-progressbar{background-color:#757575;height:100%;position:absolute;line-height:inherit}
 .w3-round-xlarge{border-radius:16px!important}
 </style>
 <div style="height: 400px;overflow: auto;" id="quiz"></div>
-<div class="form-row text-center">
+<div id="pre_results" class="form-row text-center">
     <div class="col-12">
         <button class="btn btn-primary" id="submit">Terminar validación y ver resultados!</button>
     </div>
@@ -112,7 +116,28 @@ $( document ).ready(function() {
     });
 
     // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    resultsContainer.innerHTML = `<div class="text-center"> {{ request.user }}, te informamos que obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</div>`;
+
+    if(numCorrect >= 3){
+
+        $(pre_results).html("");
+        resultsContainer.innerHTML = `<div class="text-center" style="margin-left: 2%; color: lightgreen;"> <h3>{{ request.user }},¡Aptitud validada! te informamos que obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</h3></div>`;
+        var pk_aptitud = {{ preguntas.0.pk }};
+        var url_ajax = "{% url 'vincular_aptitud' 987654 request.user.pk %}".replace(/987654/, pk_aptitud);
+        alert(url_ajax);
+        $.ajax({
+          type: 'GET',
+          url: url_ajax ,
+            data: {csrfmiddlewaretoken: "{{ csrf_token }}"},
+
+        });
+    }
+    else {
+                $(pre_results).html("");
+
+        resultsContainer.innerHTML = `<div class="text-center" style="color:red;"><h3> {{ request.user }}, ¡Lástima! no se vinculará la aptitud, obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</div></h3>`;
+
+    }
     alert(numCorrect);
   }
 
@@ -124,16 +149,16 @@ $( document ).ready(function() {
           {
       question: "{{ i.pregunta }}",
       answers: {
-        A: "{{ i.a }}",
-        B: "{{ i.b }}",
-        C: "{{ i.c }}",
-        D: " {{ i.d }}"
+        a: "{{ i.a }}",
+        b: "{{ i.b }}",
+        c: "{{ i.c }}",
+        d: " {{ i.d }}"
       },
       correctAnswer: "{{ i.Respuesta_correcta }}"
     },
       {% endfor %}
-
   ];
+    console.log(myQuestions);
 
   // display quiz right away
   buildQuiz();
@@ -155,7 +180,7 @@ function progress(timeleft, timetotal, $element) {
     }
 
     else{
-        alert("hola");
+        alert("Se acabó el tiempo");
 
     }
 

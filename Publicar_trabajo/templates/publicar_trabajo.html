@@ -12,37 +12,58 @@
 <form id="form_aptitudes">
 
 
-  <div class="container">
-        <center>¡Registra tu aptitud!</center>
+  <div class="container text-center">
+        <h3>¡Registra tu aptitud!</h3>
+  Selecciona el área de tu aptitud para luego poder seleccionar la aptitud que deseas declarar.
         <hr>
     <div class="row">
+<div class="form-group"style="padding:2%;"><label class="col-sm-2 control-label text-center">Area</label>
 
-      <div class="col-md-8">
-        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Área</label>
-        <div class="col-7-md">
-          <select class="select2_demo_1 form-control"id="area_select">
-            <option value=""></option>
-            {% for i in Areas %}
-            <option value="{{i.pk}}">{{i.Nombre}}</option>
+            <div class="col-sm-10">
+                <select class="select2_demo_1 form-control"id="area_select">
+                <option value="">Selecciona el area de la aptitud a validar</option>
+                 {% for i in Areas %}
+                 <option value="{{i.pk}}">{{i.Nombre}}</option>
 
-            {% endfor %}
+                 {% endfor %}
 
-          </select>
-        </div>
+                 </select></div>
+            </div>
+    <div class="form-group"style="margin:2%"><label class="col-sm-2 control-label text-center">Aptitud</label>
+            <div class="col-sm-10">
+                <select  class="form-control" id="aptitud_select">
+                </select>
+            </div>
     </div>
 
 
-      <div class="col-md-8">
-        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Aptitud </label>
-        <div class="col-7  ">
-            <select  class="form-control" id="aptitud_select">
-          </select>
+{#      <div class="col-md-8">#}
+{#        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Área</label>#}
+{#        <div class="col-7-md">#}
+{#          <select class="select2_demo_1 form-control"id="area_select">#}
+{#            <option value=""></option>#}
+{#            {% for i in Areas %}#}
+{#            <option value="{{i.pk}}">{{i.Nombre}}</option>#}
+{##}
+{#            {% endfor %}#}
+{##}
+{#          </select>#}
         </div>
-      </div>
+    </div>
+
+{##}
+{#      <div class="col-md-8">#}
+{#        <label for="exampleFormControlSelect1" class="col-5 col-form-label">Aptitud </label>#}
+{#        <div class="col-7  ">#}
+{#            <select  class="form-control" id="aptitud_select">#}
+{#          </select>#}
+{#        </div>#}
+{#      </div>#}
     <!-- check buttons -->
 
 {#         <a href="{% url 'visualizar_perfil' request.user.pk %}" >#}
-        <div class="form-row text-center">
+<hr>
+        <div class="row form-group text-center" style="padding:0.5%;">
             <div id="declarar_boton"class="col-12">
             </div>
          </div>
@@ -68,7 +89,7 @@ $("#area_select").change(function() {
     {#alert("JOLA");#}
     //alert(pk_select);
 
-    $("#aptitud_select").html("<option>Seleccione la aptitud</option>{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
+    $("#aptitud_select").html("<option>Seleccione una aptitud a validar</option>{% for i in Aptitudes %}    <option class='{{i.Area.pk}}' id='{{i.Area.pk}}'  value='{{i.pk}}'>{{ i.Nombre }}</option> {% endfor %}");
 
     var i;
 for (i = 1; i < 10; i++) {
@@ -82,7 +103,7 @@ for (i = 1; i < 10; i++) {
 $("#aptitud_select").change(function() {
     var pk_aptitud = $(this).val();
     var url = "{% url 'validar_aptitud' 987654 %}".replace(/987654/, pk_aptitud);
-    $("#declarar_boton").html("<a href="+url+" class='btn btn-primary'>Validar aptitud</a>");
+    $("#declarar_boton").html("<a href="+url+" class='btn btn-primary text-center' style='width:20%;'>Validar aptitud</a>");
 });
 //FIN CHANGE
 setCookie("pk_aptitud",String(pk_select),30)});

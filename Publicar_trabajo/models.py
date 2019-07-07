@@ -46,7 +46,7 @@ class Aptitudes(models.Model):
     Fecha = models.DateTimeField(default=timezone.now)
 
 class Aptitude_validadas(models.Model):
-    Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
+    Usuario = models.ForeignKey(Persona, on_delete=models.CASCADE)
     Aptitud_validada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
 
 class Respuestas(models.Model):

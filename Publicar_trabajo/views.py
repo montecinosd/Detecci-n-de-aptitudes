@@ -53,3 +53,23 @@ def visualizar_perfil(request,pk_user):
         return redirect('visualizar_perfil')
 
     return render(request, 'visualizar_perfil.html', data)
+
+
+@login_required(login_url='/auth/login')
+def vincular_aptitud(request,pk_aptitud,pk_user):
+    data = {}
+    aptitud = Aptitudes.objects.get(pk=pk_aptitud)
+    user = Persona.objects.get(Usuario=pk_user)
+    print("HOLA")
+    print(aptitud)
+    print(user)
+    print("HOLA2")
+    aptitud_validada = Aptitude_validadas()
+
+    aptitud_validada.Usuario = user
+    aptitud_validada.Aptitud_validada = aptitud
+    aptitud_validada.save()
+
+    if request.method =="GET":
+        print("AQUI EN GET MAN")
+    return "xd"
