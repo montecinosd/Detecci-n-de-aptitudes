@@ -46,6 +46,15 @@ def visualizar_perfil(request,pk_user):
     usuario = Persona.objects.get(Usuario=pk_user)
     data['usuario'] = usuario
     data['aptidudes_validadas'] = Aptitude_validadas.objects.filter(Usuario=pk_user)
+    portafolio=[]
+    for i in data['aptidudes_validadas']:
+        print("en for")
+        print(i.Aptitud_validada.pk)
+        portafolio_aptitud= Portafolio.objects.filter(aptitude_validadas = i.Aptitud_validada.pk)
+        print(portafolio_aptitud)
+        portafolio.append(portafolio_aptitud)
+    data['portafolio'] = portafolio
+
     print(data)
     if request.method == 'GET':
         print("get")
@@ -60,6 +69,7 @@ def vincular_aptitud(request,pk_aptitud,pk_user):
     data = {}
     aptitud = Aptitudes.objects.get(pk=pk_aptitud)
     user = Persona.objects.get(Usuario=pk_user)
+
     print("HOLA")
     print(aptitud)
     print(user)

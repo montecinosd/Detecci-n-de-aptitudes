@@ -20,6 +20,9 @@ class PersonaAdmin(admin.ModelAdmin):
 class AptitudesAdmin(admin.ModelAdmin):
     list_display = ('Area','Nombre','Descripccion','Fecha','Imagen')
 
+@admin.register(Portafolio)
+class PortafolioAdmin(admin.ModelAdmin):
+    list_display = ('Nombre','aptitude_validadas','pdf',)
 @admin.register(Aptitude_validadas)
 class Aptitude_validadasAdmin(admin.ModelAdmin):
     list_display = ('Usuario','Aptitud_validada')
