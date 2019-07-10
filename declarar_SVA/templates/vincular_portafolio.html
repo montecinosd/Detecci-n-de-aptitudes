@@ -1,0 +1,97 @@
+{% extends 'Partials/_Base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+
+ <link rel="stylesheet" type="text/css" href="{% static 'assets/' %}">
+{% block section_contenido %}
+
+<div class="admin-panels ui-sortable animated fadeIn">
+
+<form id="form_aptitudes" action="{% url 'vincular_portafolio_save' aptitud.pk %}" method="post">
+{% csrf_token %}
+
+  <div class="container text-center">
+        <h3>¡Registra portafolio!</h3>
+  Rellena los campos para añadir el portafolio de tu aptitud.
+        <hr>
+
+          Añadiendo portafolio a {{ aptitud.Nombre }}
+
+    <div class="row">
+<div class="form-group"style="padding:2%;"><label class="col-sm-2 control-label text-center">Nombre</label>
+
+            <div class="col-sm-10">
+                    <input type="input" class="form-control" id="nombre_aptitud" name ="nombre_aptitud" placeholder="Ingrese el nombre">
+
+
+            </div>
+    <div class="form-group text-center"style="margin:4%"><label class="col-sm-2 control-label text-center">File</label>
+            <div class="col-sm-10">
+                <input type="file" class="custom-file-input" name ="file_aptitud" id="file_aptitud">
+
+            </div>
+    </div>
+        </div>
+    </div>
+
+{#         <a href="{% url 'visualizar_perfil' request.user.pk %}" >#}
+<hr>
+        <div class="row form-group text-center" style="padding:0.5%;">
+            <div id="declarar_boton"class="col-12">
+                    <input type="submit" value="Registrar portafolio" class='btn btn-primary text-center' style='width:20%;'>
+
+{#                <a  type="submit" id="submit_buton" href="{% url 'vincular_portafolio_save' aptitud.pk %}"class='btn btn-primary text-center' style='width:20%;'>Registrar portafolio</a>#}
+            </div>
+         </div>
+{#<button style="text-align: center;margin:2%;" class=" col-md-11 btn btn-primary" onclick="{% url 'visualizar_perfil' request.user.pk %}">Continue</button>#}
+{#        <button style="text-align: center;margin:2%;" type="submit" class=" col-md-11 btn btn-primary">Validar esta aptitud</button>#}
+
+
+</form>
+</div>
+{#href='{% url 'vincular_portafolio_save' aptitud.pk %}"'#}
+{% endblock %}
+{% block scripts %}
+<script>
+
+$( document ).ready(function() {
+  $("#submit_buton").click(){
+      alert(click);
+    }
+
+$("#nombre_aptitud").change(function() {
+
+    $("#declarar_boton").html("a href='' class='btn btn-primary text-center' style='width:20%;'>Validar aptitud</a><");
+});
+//FIN CHANGE
+setCookie("pk_aptitud",String(pk_select),30)});
+// FORM
+    $('#form_aptitudes').submit(function(){
+        alert("SUBMIT");
+    //AJAX
+      {#  $.ajax({#}
+      {#  url: "",#}
+      {#  type: "POST",#}
+      {#  data: {#}
+      {#      "pk_aptitud" : getCookie("pk_aptitud"),#}
+      {#      csrfmiddlewaretoken: "{{ csrf_token }}",#}
+      {#  },#}
+      {#  success: function(data) {#}
+      {#      console.log(data);#}
+      {##}
+      {#      window.location.href = "{% url 'validar_aptitud' 987654 %}";#}
+      {##}
+      {#  },#}
+      {#});#}
+    // FIN AJAX
+    return false;
+
+    });
+//FIN PRINCIPAL
+});
+
+// console.log("{% csrf_token %}");
+</script>
+
+{% endblock %}

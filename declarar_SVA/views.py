@@ -26,6 +26,41 @@ def declarar_SVA(request):
     return render(request, 'declarar_SVA.html', data)
 
 @login_required(login_url='/auth/login')
+def vincular_portafolio(request,pk_aptitud):
+    data = {}
+    aptitud = Aptitudes.objects.get(pk=pk_aptitud)
+    data["aptitud"]=aptitud
+
+    return render(request, 'vincular_portafolio.html', data)
+
+@login_required(login_url='/auth/login')
+def vincular_portafolio_save(request,pk_aptitud):
+    aptitud = Aptitude_validadas.objects.get(pk=pk_aptitud)
+    # portafolio = Portafolio()
+    # portafolio.aptitude_validadas = aptitud
+
+    print(request)
+    data = {}
+    print("HOLA")
+    if request.method == 'GET':
+        print("get")
+    if request.method == 'POST':
+        print("POSSST BEIBE")
+        print(request.POST)
+        nombre = request.POST["nombre_aptitud"]
+        file = request.POST["file_aptitud"]
+        print(type(file))
+        portafolio = Portafolio()
+        portafolio.aptitude_validadas = aptitud
+        portafolio.Nombre = nombre
+        portafolio.pdf = "pdf/"+file
+        portafolio.save()
+    # return render(request, 'visualizar_perfil.html', data)
+    return redirect('visualizar_perfil',1)
+
+
+
+@login_required(login_url='/auth/login')
 def validar_aptitud(request,pk_aptitud):
 
     data = {}
@@ -45,17 +80,19 @@ def visualizar_perfil(request,pk_user):
     data = {}
     usuario = Persona.objects.get(Usuario=pk_user)
     data['usuario'] = usuario
-    data['aptidudes_validadas'] = Aptitude_validadas.objects.filter(Usuario=pk_user)
+    print(usuario.pk)
+    print(request.user.pk)
+    data['aptidudes_validadas'] = Aptitude_validadas.objects.filter(Usuario=usuario.pk)
     portafolio=[]
     for i in data['aptidudes_validadas']:
-        print("en for")
+        # print("en for")
         print(i.Aptitud_validada.pk)
         portafolio_aptitud= Portafolio.objects.filter(aptitude_validadas = i.Aptitud_validada.pk)
         print(portafolio_aptitud)
         portafolio.append(portafolio_aptitud)
     data['portafolio'] = portafolio
 
-    print(data)
+    # print(data)
     if request.method == 'GET':
         print("get")
     else:
@@ -67,7 +104,7 @@ def visualizar_perfil(request,pk_user):
 @login_required(login_url='/auth/login')
 def vincular_aptitud(request,pk_aptitud,pk_user):
     data = {}
-    aptitud = Aptitudes.objects.get(pk=pk_aptitud)
+    aptitud = Aptitudes.objects.get(pk=3)
     user = Persona.objects.get(Usuario=pk_user)
 
     print("HOLA")

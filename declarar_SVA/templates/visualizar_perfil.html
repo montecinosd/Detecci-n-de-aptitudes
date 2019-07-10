@@ -58,7 +58,13 @@
 <div class="text-center">Portafolio</div>
             <img class="class='img-responsive" src="/media/{{ i.Aptitud_validada.Imagen }}" alt="Card image" style="margin:2px;width:350px; height: 130px;">
             <div class="card-body ">
-              <h4 class="card-title text-center">{{ i.Aptitud_validada.Nombre }}</h4>
+              <h4 class="card-title text-center">{{ i.Aptitud_validada.Nombre }}
+
+
+                  <a style="float: right;" href="{% url 'vincular_portafolio' i.Aptitud_validada.pk %}" >
+  <span class="glyphicon glyphicon-plus-sign"  aria-hidden="true"></span>
+                  </a></h4>
+
               <p class="card-text"> {{ i.Descripccion }}</p>
 
                 <hr>

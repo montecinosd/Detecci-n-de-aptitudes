@@ -17,7 +17,7 @@ def index(request):
     a = 'jj'
     data = {a: 'holiwis'}
 
-    return render(request, 'declarar_SVA.html', data)
+    return redirect('visualizar_perfil',1)
 
 
 #def Registro_form(request):

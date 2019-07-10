@@ -147,7 +147,7 @@ async function demo() {
         resultsContainer.innerHTML = `<div class="text-center" style="margin-left: 2%; color: lightgreen;"> <h3>{{ request.user }},¡Aptitud validada! te informamos que obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</h3></div>`;
         var pk_aptitud = {{ preguntas.0.pk }};
         var url_ajax = "{% url 'vincular_aptitud' 987654 request.user.pk %}".replace(/987654/, pk_aptitud);
-        alert(url_ajax);
+        {#alert(url_ajax);#}
         $.ajax({
           type: 'GET',
           url: url_ajax ,
@@ -158,12 +158,12 @@ async function demo() {
 
     }
     else {
-                $(pre_results).html("");
+        $(pre_results).html("");
 
         resultsContainer.innerHTML = `<div class="text-center" style="color:red;"><h3> {{ request.user }}, ¡Lástima! no se vinculará la aptitud, obtuviste ${numCorrect} respuestas correctas de ${myQuestions.length}</div></h3>`;
 
     }
-    {#url_visualizar_perfil();#}
+    url_visualizar_perfil();
     {#alert(numCorrect);#}
   }
 
@@ -193,8 +193,6 @@ async function demo() {
   submitButton.addEventListener("click", showResults);
 
 })();
-</script>
-<script>
 {#progress bar para el tiempo#}
 function progress(timeleft, timetotal, $element) {
     var progressBarWidth = timeleft * $element.width() / timetotal;
@@ -206,7 +204,10 @@ function progress(timeleft, timetotal, $element) {
     }
 
     else{
+
+
         alert("Se acabó el tiempo");
+        document.getElementById("url_visualizar_button").click();
 
     }
 
@@ -214,6 +215,9 @@ function progress(timeleft, timetotal, $element) {
 
 progress(60, 60, $('#progressBar'));
 </script>
+</script>
+
+
 <style>
 #progressBar {
   width: 90%;
