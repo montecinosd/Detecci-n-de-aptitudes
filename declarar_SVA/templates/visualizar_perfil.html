@@ -54,6 +54,7 @@
 <div class="row">
 
         {% for i in aptidudes_validadas %}
+{#            {{ i }}#}
           <div class="card col-md-6" style="padding:1%;width: 33%;height: 100%;"  >
 <div class="text-center">Portafolio</div>
             <img class="class='img-responsive" src="/media/{{ i.Aptitud_validada.Imagen }}" alt="Card image" style="margin:2px;width:350px; height: 130px;">
@@ -61,7 +62,7 @@
               <h4 class="card-title text-center">{{ i.Aptitud_validada.Nombre }}
 
 
-                  <a style="float: right;" href="{% url 'vincular_portafolio' i.Aptitud_validada.pk %}" >
+                  <a style="float: right;" href="{% url 'vincular_portafolio' i.pk %}" >
   <span class="glyphicon glyphicon-plus-sign"  aria-hidden="true"></span>
                   </a></h4>
 

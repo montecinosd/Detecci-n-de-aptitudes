@@ -18,7 +18,7 @@ class PersonaAdmin(admin.ModelAdmin):
 
 @admin.register(Aptitudes)
 class AptitudesAdmin(admin.ModelAdmin):
-    list_display = ('pk','Area','Nombre','Descripccion','Fecha','Imagen')
+    list_display = ('pk','Usuario','Area','Nombre','Descripccion','Fecha','Imagen')
 
 @admin.register(Portafolio)
 class PortafolioAdmin(admin.ModelAdmin):
@@ -27,9 +27,9 @@ class PortafolioAdmin(admin.ModelAdmin):
 class Aptitude_validadasAdmin(admin.ModelAdmin):
     list_display = ('pk','Usuario','Aptitud_validada')
 
-@admin.register(Respuestas)
-class RespuestasAdmin(admin.ModelAdmin):
-     list_display = ('Usuario','Informacion','Validez','list_display')
+# @admin.register(Respuestas)
+# class RespuestasAdmin(admin.ModelAdmin):
+#      list_display = ('Usuario','Informacion','Validez','list_display')
 @admin.register(Pregunta)
 class PreguntaAdmin(admin.ModelAdmin):
     list_display = ('pk','pregunta','a','b','c','d','Aptitud_vinculada','Respuesta_correcta')

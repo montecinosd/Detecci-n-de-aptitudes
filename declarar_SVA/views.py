@@ -28,7 +28,7 @@ def declarar_SVA(request):
 @login_required(login_url='/auth/login')
 def vincular_portafolio(request,pk_aptitud):
     data = {}
-    aptitud = Aptitudes.objects.get(pk=pk_aptitud)
+    aptitud = Aptitude_validadas.objects.get(pk=pk_aptitud)
     data["aptitud"]=aptitud
 
     return render(request, 'vincular_portafolio.html', data)
@@ -36,6 +36,10 @@ def vincular_portafolio(request,pk_aptitud):
 @login_required(login_url='/auth/login')
 def vincular_portafolio_save(request,pk_aptitud):
     aptitud = Aptitude_validadas.objects.get(pk=pk_aptitud)
+    # aptitud = Aptitudes.objects.get(pk=pk_aptitud)
+    usuario = Persona.objects.get(Usuario=request.user.pk)
+
+
     # portafolio = Portafolio()
     # portafolio.aptitude_validadas = aptitud
 
@@ -45,15 +49,22 @@ def vincular_portafolio_save(request,pk_aptitud):
     if request.method == 'GET':
         print("get")
     if request.method == 'POST':
+        #primero tengo que crear la aptitud vinculadada
+
+
         print("POSSST BEIBE")
         print(request.POST)
         nombre = request.POST["nombre_aptitud"]
         file = request.POST["file_aptitud"]
         print(type(file))
         portafolio = Portafolio()
+        portafolio.Usuario = usuario
         portafolio.aptitude_validadas = aptitud
         portafolio.Nombre = nombre
-        portafolio.pdf = "pdf/"+file
+        if (file == ""):
+            print("esta vacio we")
+        else:
+            portafolio.pdf = "pdf/"+file
         portafolio.save()
     # return render(request, 'visualizar_perfil.html', data)
     return redirect('visualizar_perfil',1)
@@ -80,15 +91,18 @@ def visualizar_perfil(request,pk_user):
     data = {}
     usuario = Persona.objects.get(Usuario=pk_user)
     data['usuario'] = usuario
-    print(usuario.pk)
-    print(request.user.pk)
+    # print(usuario.pk)
+    # print(request.user.pk)
     data['aptidudes_validadas'] = Aptitude_validadas.objects.filter(Usuario=usuario.pk)
+    print(data['aptidudes_validadas'])
     portafolio=[]
+    #portafolio
     for i in data['aptidudes_validadas']:
         # print("en for")
-        print(i.Aptitud_validada.pk)
-        portafolio_aptitud= Portafolio.objects.filter(aptitude_validadas = i.Aptitud_validada.pk)
-        print(portafolio_aptitud)
+        print(i.pk)
+        # print(i.Aptitud_validada.pk)
+        portafolio_aptitud= Portafolio.objects.filter(aptitude_validadas = i.pk)
+        #print(portafolio_aptitud)
         portafolio.append(portafolio_aptitud)
     data['portafolio'] = portafolio
 
@@ -97,7 +111,7 @@ def visualizar_perfil(request,pk_user):
         print("get")
     else:
         return redirect('visualizar_perfil')
-
+    print(data)
     return render(request, 'visualizar_perfil.html', data)
 
 

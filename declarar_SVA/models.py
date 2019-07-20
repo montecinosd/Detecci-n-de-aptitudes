@@ -54,8 +54,8 @@ class Cuestionario(models.Model):
 
 class Portafolio(models.Model):
     Nombre = models.CharField(max_length = 50,null=True,blank=True)
-    
-    aptitude_validadas = models.ForeignKey(Aptitude_validadas, on_delete=models.CASCADE)
+    Usuario = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    aptitude_validadas = models.ForeignKey(Aptitude_validadas, on_delete=models.CASCADE,null=True,blank=True)
     pdf = models.FileField(upload_to='pdf')
 
 class Pregunta(models.Model):
@@ -68,5 +68,5 @@ class Pregunta(models.Model):
     Aptitud_vinculada = models.ForeignKey(Aptitudes, on_delete=models.CASCADE)
     Respuesta_correcta = models.CharField(max_length = 10,null=True,blank=True)
 
-    Respuestas = models.ForeignKey(Respuestas, on_delete=models.CASCADE,null=True,blank=True)
+    #Respuestas = models.ForeignKey(Respuestas, on_delete=models.CASCADE,null=True,blank=True)
     Usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
